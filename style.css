@@ -5,7 +5,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  /* Other styles here */
+  background-image: url('bga.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
 @media (max-width: 400px) {
   .aboutMe {
     flex-direction: column;

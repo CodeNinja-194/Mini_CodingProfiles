@@ -174,3 +174,42 @@ body {
     font-size: 14px;
   }
 }
+/* Default styles for larger screens */
+/* You can adjust these values as needed */
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Media query for tablets */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust the font size for tablets */
+  }
+  /* Add any other styles for tablets here */
+  /* For example, you can adjust the margins or layout */
+  .myImg {
+    max-width: 100%; /* Ensure images don't overflow */
+  }
+  .aboutMe {
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding for readability */
+  }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px; /* Adjust the font size for mobile devices */
+  }
+  /* Add any other styles for mobile devices here */
+  /* For example, you can adjust the margins or layout further */
+  .myImg {
+    max-width: 100%; /* Ensure images don't overflow */
+  }
+  .aboutMe {
+    text-align: center; /* Center the text */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+}

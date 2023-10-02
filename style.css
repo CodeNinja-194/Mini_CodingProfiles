@@ -72,6 +72,15 @@ body {
   display: flex;
   gap: 10px;
 }
+.bg-white {
+  padding-top: 50px; /* Adjust the value as needed */
+  padding-bottom: 100px; /* You can keep the same or adjust as needed */
+  background: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
 
 
 /* Body styles */

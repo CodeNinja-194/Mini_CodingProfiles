@@ -6,13 +6,15 @@
   box-sizing: border-box;
 }
 body {
-  /* Other styles here */
   background-image: url('dsaProfileImg/bga.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
   z-index: -1;
+  margin: 0; /* Add margin: 0 to ensure no extra spacing around the body */
+  padding: 0; /* Add padding: 0 to ensure no extra spacing inside the body */
+  height: 100vh; /* Set the body height to fill the entire viewport */
 }
 @media (max-width: 400px) {
   .aboutMe {

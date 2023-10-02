@@ -6,16 +6,16 @@
   box-sizing: border-box;
 }
 body {
-  background-image: url('dsaProfileImg/bga.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  z-index: -1;
-  margin: 0; /* Add margin: 0 to ensure no extra spacing around the body */
-  padding: 0; /* Add padding: 0 to ensure no extra spacing inside the body */
-  height: 100vh; /* Set the body height to fill the entire viewport */
+  background: url('dsaProfileImg/bga.png') no-repeat;
+  width:100%;
+  height:100vh;
+  background-size:cover;
+  background-position: center;
+  background-repeat:no-repeat;
+  display:flex;
+  justify-content:center;
 }
+
 @media (max-width: 400px) {
   .aboutMe {
     flex-direction: column;
@@ -24,7 +24,7 @@ body {
 
 .dsa {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .dsaProfile {

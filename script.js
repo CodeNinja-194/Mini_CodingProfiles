@@ -16,8 +16,8 @@ document.addEventListener("visibilitychange", function()
 if (document.hidden)
 {
     document.title = "Hey, come back! : (";
-} 
-else 
+}
+else
 {
     document.title = "CodeNinja ❤️";
 }

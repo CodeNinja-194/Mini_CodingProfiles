@@ -5,17 +5,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background: url('dsaProfileImg/bga.png') no-repeat;
-  width:100%;
-  height:100vh;
-  background-size:cover;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+
+  /* CSS for tablets */
+  .container-narrow {
+    width: 80%;
+  }
 }
 
+@media (max-width: 576px) {
+
+  /* CSS for mobile devices */
+  .container-narrow {
+    width: 90%;
+  }
+}
 @media (max-width: 400px) {
   .aboutMe {
     flex-direction: column;
@@ -24,12 +39,33 @@ body {
 
 .dsa {
   display: flex;
+  flex-wrap: wrap;
+  /* Allow items to wrap to the next line if space is insufficient */
   gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .dsaProfile {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.2);
+  /* Improved shadow effect */
+  background-color: rgba(255, 255, 255, 0.15);
+  /* Set a semi-transparent background */
+  backdrop-filter: blur(8px);
+  /* Add blur effect to background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth transition for hover effects */
+}
+
+.dsaProfile:hover {
+  transform: scale(1.1);
+  /* Add hover effect to scale up */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.3);
+  /* Adjusted shadow effect on hover */
 }
 
 .container {
@@ -70,7 +106,36 @@ body {
 
 .aboutMe {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.aboutMe div {
+  margin: 10px;
+}
+
+.aboutMe .myImg {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aboutMe b {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.aboutMe div:nth-child(2) {
+  flex: 1;
+  font-family: 'Arial', sans-serif;
+  color: #555;
+  line-height: 1.5;
 }
 
 

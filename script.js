@@ -22,3 +22,17 @@ else
     document.title = "CodeNinja ❤️";
 }
 });
+// script.js
+
+function expandCard(card) {
+  // Toggle the expanded class to show/hide the expanded card
+  card.classList.toggle('expanded');
+  
+  // Optionally, collapse other cards
+  const allCards = document.querySelectorAll('.dsaProfile');
+  allCards.forEach(function(otherCard) {
+    if (otherCard !== card) {
+      otherCard.classList.remove('expanded');
+    }
+  });
+}

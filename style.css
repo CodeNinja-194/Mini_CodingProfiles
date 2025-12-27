@@ -1,13 +1,15 @@
-/* Global Styles */
+/* =====================
+   GLOBAL STYLES
+===================== */
 * {
-  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: url('dsaProfileImg/bga.png') no-repeat center center fixed;
+  background: url("dsaProfileImg/bga.png") no-repeat center center fixed;
   background-size: cover;
   width: 100%;
   min-height: 100vh;
@@ -15,87 +17,190 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: #333;
+  color: #010605;
   position: relative;
   z-index: 1;
 }
 
-/* Overlay for Light Background */
+/* Light overlay */
 body::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(255, 255, 255, 0.85);
-  /* Very light white with slight transparency */
   z-index: -1;
-  /* Behind content */
+}
+/* =====================
+   NAVBAR – LIGHT / FLOATING / HIDDEN
+===================== */
+/* Logo image inside navbar */
+/* Rounded logo inside navbar */
+.nav-logo {
+  height: 32px;
+  width: auto;
+
+  border-radius: 10px;
+  /* 👈 rounded corners */
+  padding: 4px;
+  /* breathing space */
+  background: rgba(255, 255, 255, 0.6);
+
+  object-fit: contain;
+  display: block;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Alternate Neumorphism Effect for the Card */
-/* Neumorphic Effect for the Card */
+/* Subtle hover polish */
+.nav-logo:hover {
+  transform: scale(1.04);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* Dark mode adjustment */
+body.dark .nav-logo {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.6);
+}
+.navbar {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: calc(100% - 60px);
+  max-width: 1100px;
+  height: 56px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 22px;
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  z-index: 1000;
+}
+
+/* Logo — subtle highlight only */
+.nav-title {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+
+  background: rgba(59, 130, 246, 0.12);
+  color: #1e3a8a;
+}
+
+/* Right actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons – very soft */
+.nav-btn,
+.theme-toggle {
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover,
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* =====================
+   DARK MODE NAVBAR
+===================== */
+body.dark .navbar {
+  background: rgba(15, 23, 42, 0.88);
+}
+
+body.dark .nav-title {
+  background: linear-gradient(135deg,
+      rgba(56, 189, 248, 0.2),
+      rgba(99, 102, 241, 0.2));
+  color: #e0f2fe;
+}
+
+body.dark .nav-btn,
+body.dark .theme-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+}
+
+body.dark .nav-btn:hover,
+body.dark .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Prevent navbar overlap */
+.site-main {
+  padding-top: 70px;
+}
+
+/* =====================
+   ABOUT ME
+===================== */
 .aboutMe {
   display: flex;
   align-items: center;
   padding: 20px;
   border-radius: 12px;
-  background: #e0e5ec;
-  /* Light gray for neumorphism */
-  box-shadow: 8px 8px 15px rgba(150, 150, 150, 0.2), -8px -8px 15px rgba(255, 255, 255, 0.7);
+  background: #f1f5f9;
   transition: all 0.3s ease-in-out;
-  opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
 .aboutMe:hover {
-  box-shadow: 10px 10px 20px rgba(150, 150, 150, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.8);
   transform: translateY(-5px);
+  box-shadow:
+    12px 12px 20px rgba(59, 130, 246, 0.18),
+    -12px -12px 20px rgba(255, 255, 255, 0.9);
 }
 
-/* Neumorphic Icon Style */
-.dsaProfile {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #e0e5ec;
-  box-shadow: 6px 6px 12px rgba(150, 150, 150, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dsaProfile:hover {
-  transform: scale(1.1);
-  box-shadow: 8px 8px 16px rgba(150, 150, 150, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.9);
-}
-
-/* Neumorphic Image Border and Glow */
-.aboutMe .myImg {
-  border-radius: 50%;
+.myImg {
   width: 150px;
   height: 150px;
+  border-radius: 50%;
   object-fit: cover;
   border: 3px solid #e0e5ec;
-  box-shadow: 4px 4px 8px rgba(150, 150, 150, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow:
+    4px 4px 8px rgba(150, 150, 150, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.7);
 }
 
-.aboutMe .myImg:hover {
-  transform: scale(1.05);
-  border-color: #1a1b1a;
-  /* Green border on hover */
-  box-shadow: 4px 4px 12px rgba(113, 112, 112, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.8);
-}
-
-/* Add Spacing for Text */
 .aboutMe div:nth-child(2) {
   flex: 1;
-  color: #908c8c;
-  line-height: 1.5;
   margin-left: 20px;
+  color: #555;
+  line-height: 1.5;
 }
 
-/* DSA Section */
+/* =====================
+   DSA SECTION
+===================== */
 .dsa {
   display: flex;
   flex-wrap: wrap;
@@ -109,264 +214,195 @@ body::before {
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dsaProfile:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Progress Bar */
-#progress-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: 9999;
-  display: none;
-}
-
-#progress-bar {
-  height: 100%;
-  width: 0;
-  background-color: #4a90e2;
-  transition: width 0.1s ease;
-}
-
-/* Spinner Animation */
-#loading-spinner {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  display: none;
-}
-
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #4a90e2;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Fade-in Animation for AboutMe Section */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Minimal Style for Icons with Unique Shapes */
-.dsaProfile {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  /* Rounded square shape for a unique look */
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Simple shadow for slight depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dsaProfile:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  /* Slightly deeper shadow on hover */
-}
-
-/* Optional: Style for Icon Inside dsaProfile */
-.dsaProfile svg {
-  width: 24px;
-  height: 24px;
-  fill: #4a90e2;
-  /* Icon color; adjust as needed */
-  transition: fill 0.3s ease;
-}
-
-.dsaProfile:hover svg {
-  fill: #00ff00;
-  /* Change color on hover */
-}
-
-/* Alternative Unique Shape for dsaProfile - Circle, Hexagon, or Square */
-.dsaProfile.hexagon {
-  width: 50px;
-  height: 50px;
-  background-color: #fff;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  /* Hexagon shape */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dsaProfile.hexagon:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Optional: Shape for Circle Icons */
-.dsaProfile.circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  /* Perfect circle */
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dsaProfile.circle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Neumorphic Image Border and Glow */
-.aboutMe .myImg {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border: 3px solid #e0e5ec;
-  box-shadow: 4px 4px 8px rgba(150, 150, 150, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.aboutMe .myImg:hover {
-  transform: scale(1.05);
-  border-color: #797979;
-  /* Green border on hover */
-  box-shadow: 4px 4px 12px rgba(93, 94, 93, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.8);
-}
-
-/* Add Spacing for Text */
-.aboutMe div:nth-child(2) {
-  flex: 1;
-  color: #555;
-  line-height: 1.5;
-  margin-left: 20px;
-}/* Expanded card content hidden by default */
+/* Expanded card */
 .expanded-card {
   display: none;
   position: absolute;
   top: 60px;
-  /* Position below the icon */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Show the expanded card when the class is added */
+.dsaProfile:hover .expanded-card,
 .dsaProfile.expanded .expanded-card {
   display: block;
   opacity: 1;
   transform: translateX(-50%) translateY(20px);
-  /* Slightly push it down */
-}
-/* DSA Section */
-.dsa {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
 }
 
-.dsaProfile {
-  width: 50px;
-  height: 50px;
+/* =====================
+   DARK MODE
+===================== */
+body.dark {
+  color: #e5e7eb;
+}
+
+body.dark::before {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+body.dark .aboutMe {
+  background: #243447;
+}
+
+body.dark .aboutMe div:nth-child(2) {
+  color: #cbd5f5;
+}
+
+body.dark .dsaProfile {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+body.dark .myImg {
+  border-color: #64748b;
+  box-shadow:
+    4px 4px 10px rgba(0, 0, 0, 0.5),
+    -4px -4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .aboutMe:hover {
+  box-shadow:
+    12px 12px 20px rgba(0, 0, 0, 0.6),
+    -12px -12px 20px rgba(255, 255, 255, 0.06);
+}
+
+/* Smooth transitions */
+body,
+.aboutMe,
+.dsaProfile,
+.quote-mark {
+  transition: background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+body.dark .navbar {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .nav-title {
+  background: rgba(99, 102, 241, 0.2);
+  color: #e0f2fe;
+}
+
+body.dark .nav-btn,
+body.dark .theme-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+}
+
+body.dark .nav-btn:hover,
+body.dark .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+/* =====================
+   MUSIC DISC (VINYL)
+===================== */
+.music-disc {
+  position: fixed;
+  left: -110px;
+  bottom: -110px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  /* Ensures icons are round */
+  background: radial-gradient(circle at center,
+      #f8fafc 18%,
+      #cbd5e1 45%,
+      #64748b 75%,
+      #1e293b 100%);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.45),
+    inset 0 0 18px rgba(255, 255, 255, 0.35);
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 999;
+  animation: discRotate 22s linear infinite;
 }
 
-.dsaProfile:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.3);
-}
+/* Disc image (YouTube cover) */
 
-/* Expanded card content hidden by default */
-.expanded-card {
-  display: none;
-  position: absolute;
-  top: 60px;
-  /* Position below the icon */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Show the expanded card when hovering */
-.dsaProfile:hover .expanded-card {
-  display: block;
-  opacity: 1;
-  transform: translateX(-50%) translateY(20px);
-  /* Slightly push it down */
-}
-
-/* Neumorphic Image Border and Glow */
-.aboutMe .myImg {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
+.disc-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 3px solid #e0e5ec;
-  box-shadow: 4px 4px 8px rgba(150, 150, 150, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  border-radius: 0 0 50% 50%;
+  z-index: 2;
 }
 
-.aboutMe .myImg:hover {
-  transform: scale(1.05);
-  border-color: #797979;
-  box-shadow: 4px 4px 12px rgba(93, 94, 93, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.8);
+/* Vinyl center hole */
+.music-disc::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: #111827;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.4);
+}
+
+/* Pause rotation on hover */
+.music-disc:hover {
+  animation-play-state: paused;
+}
+
+/* Rotation */
+@keyframes discRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide disc on mobile */
+@media (max-width: 768px) {
+  .music-disc {
+    display: none;
+  }
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

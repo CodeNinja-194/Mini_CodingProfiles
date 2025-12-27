@@ -1,1 +1,90 @@
 # Mini_CodingProfiles
+
+# Mini_CodingProfiles 🚀
+
+A sleek, minimal, and interactive personal coding profile website built to showcase **problem-solving skills, developer identity, and coding platforms** — all in one place.
+
+Designed with a clean UI, subtle animations, dark mode, and a unique floating music disc for personality.
+
+---
+
+## ✨ Features
+
+- 🧠 **Daily Motivational Coding Quotes**
+- 🌗 **Light / Dark Mode Toggle**
+- 👤 **About Me Section**
+- 🧩 **DSA & Coding Platform Profiles**
+  - LeetCode
+  - Codeforces
+  - CodeChef
+  - GeeksforGeeks
+  - HackerRank
+  - Coding Ninjas
+  - GitHub
+  - LinkedIn
+- 🎵 **Background Music Disc**
+  - Click to play
+  - Double-click to pause
+  - Vinyl-style rotating UI
+- 🧊 **Floating Glassmorphism Navbar**
+- 📱 **Fully Responsive Design**
+- ⚡ Smooth animations & transitions
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5**
+- **CSS3**
+  - Flexbox
+  - Glassmorphism
+  - Animations & Transitions
+- **Vanilla JavaScript**
+- **No external frameworks**
+
+---
+
+## 📂 Project Structure
+
+Mini_CodingProfiles/
+├── index.html # Main HTML file
+├── style.css # Global styles & theme
+├── script.js # Interactions, dark mode, music logic
+│
+├── dsaProfileImg/ # Images & icons
+│ ├── photo.jpg # Profile picture
+│ ├── lc.png # LeetCode icon
+│ ├── cf.png # Codeforces icon
+│ ├── gfg.png # GeeksforGeeks icon
+│ ├── cc.png # CodeChef icon
+│ ├── hr.png # HackerRank icon
+│ ├── cn.png # Coding Ninjas icon
+│ ├── gh.png # GitHub icon
+│ └── music-cover.jpg # Music disc cover
+│
+├── music/ # Background music assets
+│ └── Blue.mp3 # Intro / ambient music
+│
+└── README.md # Project documentation
+
+---
+
+## 🎯 Purpose
+
+This project was built to:
+
+- Create a **personal coding identity**
+- Showcase **competitive programming profiles**
+- Practice **UI/UX design with pure CSS**
+- Add personality using subtle music & animations
+- Serve as a **mini portfolio / profile landing page**
+
+---
+
+## 🧪 How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/Mini_CodingProfiles.git
+   ```
+2. Open index.html in your browser (No server or build step required)

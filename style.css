@@ -1,6 +1,7 @@
 /* =====================
-   GLOBAL STYLES
+   MINIMAL MODERN DESIGN
 ===================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,375 +10,179 @@
 }
 
 body {
-  background: url("dsaProfileImg/bga.png") no-repeat center center fixed;
-  background-size: cover;
+  background: #f5f7fa;
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: #010605;
+  color: #000;
   position: relative;
   z-index: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Light overlay */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.85);
-  z-index: -1;
+body.dark {
+  background: #0f1115;
+  color: #fff;
 }
+
 /* =====================
-   NAVBAR – LIGHT / FLOATING / HIDDEN
+   NAVBAR - MINIMAL
 ===================== */
-/* Logo image inside navbar */
-/* Rounded logo inside navbar */
-.nav-logo {
-  height: 32px;
-  width: auto;
-
-  border-radius: 10px;
-  /* 👈 rounded corners */
-  padding: 4px;
-  /* breathing space */
-  background: rgba(255, 255, 255, 0.6);
-
-  object-fit: contain;
-  display: block;
-
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.12);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Subtle hover polish */
-.nav-logo:hover {
-  transform: scale(1.04);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.18);
-}
-
-/* Dark mode adjustment */
-body.dark .nav-logo {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.6);
-}
 .navbar {
   position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: calc(100% - 60px);
-  max-width: 1100px;
-  height: 56px;
-
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 0 22px;
-  border-radius: 28px;
-
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(18px);
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.08);
-
+  padding: 0 60px;
   z-index: 1000;
 }
 
-/* Logo — subtle highlight only */
-.nav-title {
-  font-size: 15px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-
-  background: rgba(59, 130, 246, 0.12);
-  color: #1e3a8a;
-}
-
-/* Right actions */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Buttons – very soft */
-.nav-btn,
-.theme-toggle {
-  border: none;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 8px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 14px;
-
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.nav-btn:hover,
-.theme-toggle:hover {
-  background: rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-/* =====================
-   DARK MODE NAVBAR
-===================== */
-body.dark .navbar {
-  background: rgba(15, 23, 42, 0.88);
-}
-
-body.dark .nav-title {
-  background: linear-gradient(135deg,
-      rgba(56, 189, 248, 0.2),
-      rgba(99, 102, 241, 0.2));
-  color: #e0f2fe;
-}
-
-body.dark .nav-btn,
-body.dark .theme-toggle {
-  background: rgba(255, 255, 255, 0.12);
-  color: #e5e7eb;
-}
-
-body.dark .nav-btn:hover,
-body.dark .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-/* Prevent navbar overlap */
-.site-main {
-  padding-top: 70px;
-}
-
-/* =====================
-   ABOUT ME
-===================== */
-.aboutMe {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-radius: 12px;
-  background: #f1f5f9;
-  transition: all 0.3s ease-in-out;
-  animation: fadeIn 1s forwards;
-}
-
-.aboutMe:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    12px 12px 20px rgba(59, 130, 246, 0.18),
-    -12px -12px 20px rgba(255, 255, 255, 0.9);
-}
-
-.myImg {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #e0e5ec;
-  box-shadow:
-    4px 4px 8px rgba(150, 150, 150, 0.2),
-    -4px -4px 8px rgba(255, 255, 255, 0.7);
-}
-
-.aboutMe div:nth-child(2) {
-  flex: 1;
-  margin-left: 20px;
-  color: #555;
-  line-height: 1.5;
-}
-
-/* =====================
-   DSA SECTION
-===================== */
-.dsa {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.dsaProfile {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dsaProfile:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Expanded card */
-.expanded-card {
+.nav-links {
   display: none;
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Removed navigation links */
 }
 
-.dsaProfile:hover .expanded-card,
-.dsaProfile.expanded .expanded-card {
-  display: block;
-  opacity: 1;
-  transform: translateX(-50%) translateY(20px);
+/* Left Favicon Logo */
+.nav-logo-left {
+  display: flex;
+  align-items: center;
 }
 
-/* =====================
-   DARK MODE
-===================== */
-body.dark {
-  color: #e5e7eb;
-}
-
-body.dark::before {
-  background: rgba(0, 0, 0, 0.45);
-}
-
-body.dark .aboutMe {
-  background: #243447;
-}
-
-body.dark .aboutMe div:nth-child(2) {
-  color: #cbd5f5;
-}
-
-body.dark .dsaProfile {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-body.dark .myImg {
-  border-color: #64748b;
-  box-shadow:
-    4px 4px 10px rgba(0, 0, 0, 0.5),
-    -4px -4px 10px rgba(255, 255, 255, 0.05);
-}
-
-body.dark .aboutMe:hover {
-  box-shadow:
-    12px 12px 20px rgba(0, 0, 0, 0.6),
-    -12px -12px 20px rgba(255, 255, 255, 0.06);
-}
-
-/* Smooth transitions */
-body,
-.aboutMe,
-.dsaProfile,
-.quote-mark {
-  transition: background-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-body.dark .navbar {
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-}
-
-body.dark .nav-title {
-  background: rgba(99, 102, 241, 0.2);
-  color: #e0f2fe;
-}
-
-body.dark .nav-btn,
-body.dark .theme-toggle {
-  background: rgba(255, 255, 255, 0.12);
-  color: #e5e7eb;
-}
-
-body.dark .nav-btn:hover,
-body.dark .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-/* =====================
-   MUSIC DISC (VINYL)
-===================== */
-.music-disc {
-  position: fixed;
-  left: -110px;
-  bottom: -110px;
-  width: 220px;
-  height: 220px;
+.favicon-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
   border-radius: 50%;
-  background: radial-gradient(circle at center,
-      #f8fafc 18%,
-      #cbd5e1 45%,
-      #64748b 75%,
-      #1e293b 100%);
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.45),
-    inset 0 0 18px rgba(255, 255, 255, 0.35);
-  overflow: hidden;
-  z-index: 999;
-  animation: discRotate 22s linear infinite;
+  /* Rounded logo */
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
 }
 
-/* Disc image (YouTube cover) */
-
-.disc-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  border-radius: 0 0 50% 50%;
-  z-index: 2;
+.favicon-logo:hover {
+  transform: scale(1.1);
 }
 
-/* Vinyl center hole */
-.music-disc::after {
-  content: "";
+/* Right Social Icons */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto;
+}
+
+/* Modern Theme Switch (New Design) */
+.theme-toggle-new {
+  border: none;
+  background: #e2e8f0;
+  width: 60px;
+  height: 32px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-new .sun-icon,
+.theme-toggle-new .moon-icon {
+  width: 18px;
+  height: 18px;
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  transform: translate(-50%, -50%);
-  background: #111827;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  z-index: 2;
+  color: #64748b;
+}
+
+.theme-toggle-new .sun-icon {
+  left: 8px;
+  opacity: 1;
+}
+
+.theme-toggle-new .moon-icon {
+  right: 8px;
+  opacity: 0.5;
+}
+
+/* The sliding handle */
+.theme-toggle-new::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
   border-radius: 50%;
-  z-index: 3;
-  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 1;
 }
 
-/* Pause rotation on hover */
-.music-disc:hover {
-  animation-play-state: paused;
+body.dark .theme-toggle-new {
+  background: #2d3748;
 }
 
-/* Rotation */
-@keyframes discRotate {
+body.dark .theme-toggle-new::after {
+  left: calc(100% - 28px);
+  background: #667eea;
+}
+
+body.dark .theme-toggle-new .sun-icon {
+  opacity: 0.5;
+  color: #94a3b8;
+}
+
+body.dark .theme-toggle-new .moon-icon {
+  opacity: 1;
+  color: #fff;
+}
+
+/* Removed old button styles causing conflicts */
+.theme-toggle-new .hidden {
+  display: block;
+  /* We manage visibility with opacity now */
+}
+
+
+/* =====================
+   ROTATING HIRE ME BADGE - BOTTOM LEFT
+===================== */
+.hire-badge {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 140px;
+  height: 140px;
+  z-index: 999;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.hire-badge:hover {
+  transform: scale(1.05);
+}
+
+.rotating-text {
+  width: 100%;
+  height: 100%;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
   from {
     transform: rotate(0deg);
   }
@@ -387,22 +192,804 @@ body.dark .theme-toggle:hover {
   }
 }
 
-/* Hide disc on mobile */
-@media (max-width: 768px) {
-  .music-disc {
-    display: none;
+/* Old badge styles removed - see bottom of file for new definitions */
+
+.site-main {
+  padding-top: 70px;
+  width: 100%;
+}
+
+/* =====================
+   BIO CARD (For Description Only)
+===================== */
+.bio-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Daily Quote Style (Minimal Text, No Card) */
+#daily-quote {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #667eea;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-weight: 500;
+}
+
+body.dark .bio-card {
+  background: #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark .hero-description {
+  color: #d1d5db;
+}
+
+body.dark #daily-quote {
+  color: #a3bffa;
+}
+
+/* =====================
+   HERO LAYOUT
+===================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* =====================
+   HERO LAYOUT
+===================== */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px;
+  gap: 0;
+  /* Remove gap, handle via padding if needed */
+  min-height: calc(100vh - 70px);
+}
+
+.hero-left,
+.hero-right {
+  flex: 1;
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hero Intro Text */
+.hero-intro {
+  margin-bottom: 24px;
+}
+
+.greeting {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.hero-name {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #111;
+  margin-bottom: 12px;
+  letter-spacing: -1.5px;
+}
+
+
+.hero-role {
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #4b5563;
+}
+
+body.dark .hero-name {
+  color: #fff;
+}
+
+body.dark .hero-role {
+  color: #d1d5db;
+}
+
+/* =====================
+   CIRCULAR CODING PROFILE ICONS
+   Ensure NO Box/Scrollbar Look
+===================== */
+.coding-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow wrapping naturally */
+  gap: 16px;
+  margin-top: 30px;
+  padding: 0;
+  /* Remove any padding */
+  overflow: visible;
+  /* No scrollbar */
+  background: transparent;
+  /* No background */
+  border: none;
+  width: 100%;
+}
+
+.profile-circle {
+  width: 55px;
+  /* Slightly smaller to fit all */
+  height: 55px;
+  border-radius: 50%;
+  /* Perfectly circular */
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+  /* Ensure tooltip can stem out */
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  /* Restore minimal border if wanted, or keep none */
+  position: relative;
+}
+
+/* Tooltip Text */
+.profile-circle::after {
+  content: attr(data-tooltip);
+  /* Using data attribute to avoid native title conflict */
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip Arrow */
+.profile-circle::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.profile-circle:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-14px);
+}
+
+.profile-circle:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+body.dark .profile-circle::after {
+  background: #fff;
+  color: #000;
+}
+
+body.dark .profile-circle::before {
+  border-color: #fff transparent transparent transparent;
+}
+
+.profile-circle:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.profile-circle img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+  border-radius: 50%;
+  /* Round the images inside too */
+  transition: transform 0.3s ease;
+}
+
+.profile-circle:hover img {
+  transform: scale(1.1);
+}
+
+body.dark .profile-circle {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .profile-circle:hover {
+  border-color: #667eea;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* =====================
+   DAILY QUOTE - UNIQUE DESIGN
+===================== */
+#daily-quote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b5563;
+  background: rgba(102, 126, 234, 0.08);
+  /* Very faint brand color */
+  padding: 16px 24px;
+  border-left: 4px solid #667eea;
+  border-radius: 0 12px 12px 0;
+  margin: 24px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Decorative Quote Mark */
+#daily-quote::before {
+  content: '“';
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-size: 4rem;
+  color: #667eea;
+  opacity: 0.2;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1;
+}
+
+#daily-quote:hover {
+  background: rgba(102, 126, 234, 0.12);
+  transform: translateX(5px);
+}
+
+body.dark #daily-quote {
+  background: rgba(255, 255, 255, 0.05);
+  color: #d1d5db;
+  border-left-color: #667eea;
+  /* Keep brand accent */
+}
+
+body.dark #daily-quote::before {
+  color: #a3bffa;
+}
+
+/* =====================
+   RIGHT SIDE - PROFILE IMAGE WITH FLOATING LABELS
+===================== */
+.hero-right {
+  flex: 1;
+  width: 50%;
+  position: relative;
+}
+
+.profile-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
+  aspect-ratio: 1;
+  /* Square */
+  border-radius: 40px;
+  /* Modern Squircle */
+  /* overflow: visible; */
+  transform: rotate(-3deg);
+  /* Slight tilt for style */
+  transition: transform 0.3s easebox-shadow 0.3s ease;
+  background: #fff;
+  padding: 10px;
+  /* Frame */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image-container:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Image styling */
+.hero-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  /* Inner radius */
+  box-shadow: none;
+  /* Shadow is on container now */
+}
+
+/* Glassmorphism Floating Tech Labels */
+.tech-label {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #000;
+  padding: 10px 24px;
+  border-radius: 30px;
+  /* Pill shape */
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.tech-label-1::before {
+  background: #61DAFB;
+}
+
+/* React Blue */
+.tech-label-2::before {
+  background: #68A063;
+}
+
+/* Node Green */
+.tech-label-3::before {
+  background: #61DAFB;
+}
+
+/* RN Blue */
+
+.tech-label:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.dark .tech-label {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .tech-label:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.tech-label-1 {
+  top: 15%;
+  right: -30px;
+  animation: float1 4s ease-in-out infinite;
+}
+
+.tech-label-2 {
+  bottom: 25%;
+  right: -40px;
+  animation: float2 5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.tech-label-3 {
+  bottom: 10%;
+  left: -20px;
+  animation: float3 4.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float3 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
   }
 }
 
 /* =====================
-   ANIMATIONS
+   DECORATIVE ELEMENTS
 ===================== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+.lightbulb-right {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  font-size: 3.5rem;
+  z-index: 100;
+  filter: drop-shadow(0 4px 12px rgba(255, 193, 7, 0.3));
+  animation: floatBulb 3s ease-in-out infinite;
+}
+
+@keyframes floatBulb {
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  to {
-    opacity: 1;
+  50% {
+    transform: translateY(-10px);
   }
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 30px;
+  }
+
+  .hero-layout {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    gap: 60px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .coding-profiles {
+    justify-content: center;
+  }
+
+  .hero-right {
+    max-width: 450px;
+  }
+
+  .hire-badge {
+    bottom: 30px;
+    left: 30px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .badge-text {
+    font-size: 14px;
+  }
+
+  .badge-center {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .favicon-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-social {
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-layout {
+    padding: 20px;
+    gap: 40px;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .profile-circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+
+  .tech-label {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+
+  .lightbulb-right {
+    display: none;
+  }
+
+  .hire-badge {
+    width: 90px;
+    height: 90px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .badge-text {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .badge-center {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-social {
+    gap: 8px;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .social-icon:nth-child(n+3) {
+    display: none;
+  }
+
+  .theme-toggle-new {
+    width: 38px;
+    height: 38px;
+  }
+
+  .theme-toggle-new .sun-icon,
+  .theme-toggle-new .moon-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .profile-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tech-label {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .hire-badge {
+    width: 75px;
+    height: 75px;
+  }
+
+  .badge-center {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+/* =====================
+   NAVBAR SOCIAL ICONS - COLORED & ROUNDED BUTTONS
+===================== */
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  /* Visible Button Background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  /* Soft Shadow */
+  transition: all 0.3s ease;
+  color: #333;
+  /* Default icon color if not SVG colored */
+  padding: 8px;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Specific Brand Colors on Hover or Default? 
+   User asked for "rounded icons" - let's keep them clean white buttons with colored icons maybe?
+   Or colored buttons. Let's do white buttons with colored icons.
+*/
+.icon-whatsapp {
+  color: #25D366;
+}
+
+.icon-instagram {
+  color: #E1306C;
+}
+
+.icon-youtube {
+  color: #FF0000;
+}
+
+body.dark .social-icon {
+  background: #1a1a1a;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark .social-icon:hover {
+  background: #252525;
+}
+
+/* =====================
+   ROTATING HIRE ME BADGE - UPDATED
+===================== */
+.hire-badge {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 140px;
+  height: 140px;
+  z-index: 999;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.badge-text textPath {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  fill: #000;
+  /* Dark text for outer ring */
+  font-size: 14px;
+}
+
+body.dark .badge-text textPath {
+  fill: #fff;
+}
+
+.badge-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #000;
+  /* Black center */
+  color: #fff;
+  /* White text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid #fff;
+}
+
+.hire-badge:hover .badge-center {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .badge-center {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+/* Smooth transitions */
+body,
+.navbar,
+.profile-circle,
+.tech-label {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

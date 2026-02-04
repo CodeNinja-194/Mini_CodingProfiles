@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codeninja-194.online/sitemap.xml

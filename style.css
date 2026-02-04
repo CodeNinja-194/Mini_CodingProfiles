@@ -993,3 +993,275 @@ body,
 .tech-label {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* =====================
+   ADVANCED VISUAL EFFECTS
+===================== */
+
+/* 1. Scroll Progress Bar */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 2000;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  width: 0%;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+/* 2. Custom Cursor Stalker */
+.cursor-dot,
+.cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #667eea;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #667eea;
+  transition: all 0.15s ease-out;
+}
+
+/* Cursor states */
+body.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: #764ba2;
+}
+
+body.cursor-hover .cursor-outline {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: #764ba2;
+}
+
+/* Hide real cursor if mouse-stalker is active on desktop */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  .profile-circle,
+  .music-disc,
+  .social-icon,
+  .hire-badge {
+    cursor: none;
+  }
+}
+
+/* 3. Preloader Animation */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+body.dark #preloader {
+  background: #0f1115;
+}
+
+.ninja-star-loader {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  animation: spinStar 1.5s linear infinite;
+}
+
+.ninja-star-loader svg {
+  width: 100%;
+  height: 100%;
+  fill: #667eea;
+  filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+}
+
+@keyframes spinStar {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Smooth transitions for theme toggle */
+body,
+.navbar,
+.profile-circle,
+.tech-label,
+#preloader {
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.5s ease;
+}
+
+/* =====================
+   INTERACTIVE TERMINAL
+===================== */
+.terminal-container {
+  max-width: 800px;
+  width: 90%;
+  margin: 60px auto 100px;
+  background: #0d0d0d;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.terminal-header {
+  background: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.close {
+  background: #ff5f56;
+}
+
+.minimize {
+  background: #ffbd2e;
+}
+
+.maximize {
+  background: #27c93f;
+}
+
+.terminal-title {
+  color: #888;
+  font-size: 0.85rem;
+  margin-left: 20px;
+  pointer-events: none;
+}
+
+.terminal-body {
+  padding: 20px;
+  height: 300px;
+  overflow-y: auto;
+  color: #00ff41;
+  /* Matrix Green */
+  font-size: 0.95rem;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+.terminal-output p {
+  margin-bottom: 8px;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.welcome-text {
+  color: #fff;
+}
+
+.highlight {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.terminal-input-line {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.prompt {
+  color: #ffbd2e;
+  white-space: nowrap;
+}
+
+#terminalInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+}
+
+/* Cursor Glow effect for terminal text */
+.terminal-output .cmd-echo {
+  color: #fff;
+}
+
+.terminal-output .cmd-response {
+  color: #00ff41;
+  margin-bottom: 15px;
+}
+
+.terminal-output .cmd-error {
+  color: #ff5f56;
+}
+
+@media (max-width: 768px) {
+  .terminal-container {
+    width: 95%;
+    margin-bottom: 60px;
+  }
+}

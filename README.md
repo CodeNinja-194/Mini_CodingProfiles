@@ -1,4 +1,3 @@
-# Mini_CodingProfiles
 
 # Mini_CodingProfiles 🚀
 
@@ -26,8 +25,20 @@ Designed with a clean UI, subtle animations, dark mode, and a unique floating mu
   - Click to play
   - Double-click to pause
   - Vinyl-style rotating UI
+- ⌨️ **Keyboard Shortcuts**
+  - `T`: Toggle Dark Mode
+  - `P`: Open Projects
+  - `L`: Open LeetCode
+  - `;`: Open LeetCode 2
+  - `G`: Open GeeksforGeeks
+  - `C`: Open CodeChef
+  - `O`: Open Codeforces
+  - `H`: Open GitHub
+  - `M`: Play/Pause Music
 - 🧊 **Floating Glassmorphism Navbar**
 - 📱 **Fully Responsive Design**
+- 📶 **PWA Support**: Installable on mobile & desktop
+- 🔍 **SEO Optimized**: Meta tags, sitemap, and robots.txt
 - ⚡ Smooth animations & transitions
 
 ---

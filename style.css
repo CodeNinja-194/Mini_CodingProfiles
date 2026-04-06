@@ -517,7 +517,7 @@ body.dark #daily-quote::before {
   /* overflow: visible; */
   transform: rotate(-3deg);
   /* Slight tilt for style */
-  transition: transform 0.3s easebox-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff;
   padding: 10px;
   /* Frame */
@@ -992,4 +992,28 @@ body,
 .profile-circle,
 .tech-label {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.music-disc {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+.profile-circle:focus-visible,
+.social-icon:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

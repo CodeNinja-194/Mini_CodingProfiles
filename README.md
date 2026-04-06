@@ -61,6 +61,11 @@ Mini_CodingProfiles/
 ├── index.html # Main HTML file
 ├── style.css # Global styles & theme
 ├── script.js # Interactions, dark mode, music logic
+├── manifest.json # PWA manifest
+├── service-worker.js # Service worker
+├── robots.txt # SEO crawl rules
+├── sitemap.xml # SEO sitemap
+├── CNAME # Custom domain mapping
 │
 ├── dsaProfileImg/ # Images & icons
 │ ├── photo.jpg # Profile picture
@@ -76,7 +81,25 @@ Mini_CodingProfiles/
 ├── music/ # Background music assets
 │ └── Blue.mp3 # Intro / ambient music
 │
+├── webfiles/ # Legacy/static hosting support files
+│ ├── manifest.json
+│ ├── service-worker.js
+│ ├── robots.txt
+│ ├── sitemap.xml
+│ └── CNAME
+│
 └── README.md # Project documentation
+
+---
+
+## 🚀 Deployment Notes
+
+- Keep `manifest.json`, `service-worker.js`, `robots.txt`, `sitemap.xml`, and `CNAME` in the publish root.
+- Ensure your host serves from project root for PWA + SEO files to resolve correctly.
+- After deployment, verify:
+  - PWA install prompt appears
+  - `robots.txt` and `sitemap.xml` are publicly accessible
+  - Custom domain maps to `codeninja-194.online`
 
 ---
 
